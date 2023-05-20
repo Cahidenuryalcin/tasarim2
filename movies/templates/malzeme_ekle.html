@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>KitchenApp</title>
+    <link rel="stylesheet" href="{% static 'css/ekle.css' %}">
+
+
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.0.0/fonts/remixicon.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https:/unpkg.com/boxicons@latest/css/boxicons.min.css">
+
+  <link rel="preconnect" href="https:/fonts.googleapis.com">
+  <link rel="preconnect" href="https:/fonts.gstatic.com" crossorigin>
+  <link href="https:/fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  
+  {% include 'partials/_navbar.html' %}
+
+
+  <form method="post" action="{% url 'malzeme_ekle' %}">
+    {% csrf_token %}
+    <div>
+      <label for="malzeme_adi">Malzeme Adı:</label>
+      <input type="text" name="malzeme_adi" required>
+    </div>
+    <div>
+      <label for="malzeme_adet">Adet:</label>
+      <input type="number" name="malzeme_adet" required>
+    </div>
+    <div>
+      <label for="kategori">Kategori:</label>
+      <select name="kategori" required>
+        {% for kategori in malzemekategori %}
+          <option value="{{ kategori.id }}">{{ kategori.name }}</option>
+        {% endfor %}
+      </select>
+    </div>
+    <button type="submit">Ekle</button>
+  </form>
+  
+<!-- js -->
+<script src="{% static 'js/script.js' %}"></script>
+  
+
+
+</body>
+</html>

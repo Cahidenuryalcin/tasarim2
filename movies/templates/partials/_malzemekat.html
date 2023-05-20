@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>KitchenApp</title>
+   
+    
+    <link rel="stylesheet" href="{% static 'css/malzeme.css' %}">
+
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.0.0/fonts/remixicon.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https:/unpkg.com/boxicons@latest/css/boxicons.min.css">
+
+  <link rel="preconnect" href="https:/fonts.googleapis.com">
+  <link rel="preconnect" href="https:/fonts.gstatic.com" crossorigin>
+  <link href="https:/fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
+</head>
+<body>  
+
+        <div class="sidebar">
+            <h3>Kategoriler</h3>
+           
+            <div class="filter">
+                <a class="active" href="{% url 'logmal' %}">Tümünü Listele</a> 
+                {% for kategori in malzemekategori %}
+                {% if kategoris.id == selecteds %}
+                    <div class="btns">
+                       <a class="active" href="{% url 'malzemebycategory' kategori.id %}">{{ kategori.name|title }}</a>
+                    </div>
+                {% endif %}
+                {% endfor %} 
+            </div>
+            
+        </div>
+
+   
+
+    
+    
+ 
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

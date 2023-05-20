@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>KitchenApp</title>
+   
+    
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.0.0/fonts/remixicon.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https:/unpkg.com/boxicons@latest/css/boxicons.min.css">
+
+  <link rel="preconnect" href="https:/fonts.googleapis.com">
+  <link rel="preconnect" href="https:/fonts.gstatic.com" crossorigin>
+  <link href="https:/fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
+</head>
+<body>  
+
+  <!--post aynı urlye atar ama farklı urlye gitmesini istersek actionu değiştirebiliriz -->
+   <form action="{% url 'login' %}" method="POST"> 
+    {% csrf_token %}
+
+    {% if error %}
+    
+    {{error}}
+   
+    {% endif %}
+		<label for="username">Kullanıcı Adı:</label>
+		<input type="text" id="username" name="username" required>
+
+		<label for="password">Parola:</label>
+		<input type="password" id="password" name="password" required>
+
+		<input type="submit" value="Giriş Yap">
+	</form>
+
+ 
+</body>
+</html>

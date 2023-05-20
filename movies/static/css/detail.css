@@ -1,0 +1,70 @@
+.detay-kapsayici {
+    
+    width: 100%;
+    max-width: 900px;
+    margin: 100px auto;
+  }
+  
+  .detay {
+    
+    color: black;
+    background-color: #fffafa;
+    padding: 20px;
+    border-radius: 5px;
+  }
+  
+  .detay-body {
+    justify-content: center;
+    text-align: center;
+  }
+  
+  .detay-img {
+    width: 200px;
+    height: auto;
+    margin-bottom: 20px;
+  }
+  
+  .detay h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .detay hr {
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+  }
+  
+  .detay ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+  }
+  
+  .detay ul li {
+    display: inline-block;
+    margin-right: 10px;
+  }
+  
+  .detay ul li i {
+    margin-right: 5px;
+  }
+  
+  .detay button {
+    background-color: #c52b4f;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .detay ol {
+    list-style-type: decimal;
+    margin-bottom: 20px;
+  }
+  
+  .detay ol li {
+    margin-bottom: 10px;
+  }
+  

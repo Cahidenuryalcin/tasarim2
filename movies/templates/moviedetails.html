@@ -1,0 +1,73 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="{% static 'css/detail.css' %}">
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body>
+  <!-- <h1>movie deatils page</h1> -->
+
+  {% include 'partials/_navbar.html' %}
+
+
+  <div class="detay-kapsayici"> 
+	<div class="detay">
+		
+		 <div class="detay-body">
+			   <img src="{% static 'img/'|add:movie.resim %}" class="detay-img" alt="...">
+			 
+				<h3><a href="#">{{movie.film_adi}}</a></h3>
+				<hr>
+				<ul>
+					<li 
+					<i class="ri-time-fill"></i>
+						<span>{{movie.vakit}} </span>Dakika
+					
+					</li>
+					<li 
+					<i class="ri-restaurant-2-line"></i>
+						<span>{{movie.kisilik}} </span>Kişilik
+					
+					</li>
+					<li 
+					<i class="ri-fire-fill"></i>
+						<span>{{movie.kalori}} </span>kcal
+					
+					</li>
+				</ul>
+				 
+				
+									
+					<h3>Malzemeler</h3>
+					
+					<ol>
+						
+						<li>{{ movie.tmalzeme }}</li>
+					</ol>
+					
+					<h3>Yapılışı</h3>
+					<ol>
+						
+						<li>{{ movie.tarif }}</li>
+					</ol>
+					
+					 <button>Ben de Yaptım</button>		
+							
+			 </div>
+	
+	</div>
+
+
+</div> 
+
+</body>
+</html>
+
+

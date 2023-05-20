@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>KitchenApp</title>
+
+    <link rel="stylesheet" href="{% static 'css/listfood.css' %}">
+  
+
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.0.0/fonts/remixicon.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https:/unpkg.com/boxicons@latest/css/boxicons.min.css">
+
+  <link rel="preconnect" href="https:/fonts.googleapis.com">
+  <link rel="preconnect" href="https:/fonts.gstatic.com" crossorigin>
+  <link href="https:/fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="but">
+        <a  href="{% url 'movies' %}"><button class="bu">Tüm Tarifleri Listele</button></a>
+
+    </div>
+
+ <div class="container2"> 
+            <div class="card">
+                 {% for film in filmler %}
+                 <div class="card-body">
+                       <img src="{% static '/img/'|add:film.resim %}" class="card-img" alt="...">
+                     
+                        <h3><a href="#">{{film.film_adi}}</a></h3>
+                        <hr>
+                        <ul>
+                            <li 
+                            <i class="ri-time-fill"></i>
+                                <span>{{film.vakit}} </span>Dakika
+                            
+                            </li>
+                            <li 
+                            <i class="ri-restaurant-2-line"></i>
+                                <span>{{film.kisilik}} </span>Kişilik
+                            
+                            </li>
+                            <li 
+                            <i class="ri-fire-fill"></i>
+                                <span>{{film.kalori}} </span>kcal
+                            
+                            </li>
+                        </ul>
+                        <a href="{% url 'moviedetails' id=film.id %}"><button>Tarife Git</button></a>
+                     </div>
+                {%endfor%} 
+ </div>
+   
+
+</div> 
+<!-- js -->
+<script src="{% static 'js/script.js' %}"></script>
+  
+</body>
+</html>

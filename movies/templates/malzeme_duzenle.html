@@ -1,0 +1,41 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block content %}
+<div class="home" style="background-image: url('../static/img/wall.jpg')">
+<div class="login_slide">
+<div class="wrapper">
+  
+  <div class="form-box login">
+    <h2>Malzeme Düzenle</h2>
+    <form action="" method="POST"> 
+      {% csrf_token %}
+  
+      {% if error %}
+      
+      {{error}}
+     
+      {% endif %}
+  
+      <div class="input-box">
+        
+        <input type="text" name="malzeme_id"  value="{{malzeme.malzeme.malzeme_adi}}" readonly>
+        <label for="malzeme_adi"></label>
+     
+      </div>
+      <div class="input-box">
+    
+        <input type="number" name="adet" value="{{malzeme.adet}}"  placeholder="Adet" required min="1">
+        <label for="malzeme_adi"></label>
+      </div>
+      <button type="submit" class="btn">Güncelle</button>
+  
+    </form>
+  </div>
+</div>
+</div>
+
+</div>
+{% endblock content %}
+
+

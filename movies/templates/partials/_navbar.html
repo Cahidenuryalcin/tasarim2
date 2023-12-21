@@ -1,59 +1,125 @@
 {% load static %}
-<!DOCTYPE html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>KitchenApp</title>
-
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <header>
+        <div class="header">
+            <div class="headerbar" style="z-index: 2;">
+                <div class="account">
+                    <ul>
+                        <a href="#">
+                            <li>
+                                <i class="fa-solid fa-house-chimney"></i>
+                            </li>
+                        </a>
+                       
+                        
+                        {% if user.is_authenticated %}
+                        <li>
+                            <a href="{% url 'logout' %}">
+                                <i class="fa-solid fa-sign-out-alt" id="logout-icon"></i>
+                            </a>
+                        </li>
+                        <li>
+                             <a href="{% url 'logmal' %}">
+                                <i class="fa-solid fa-user" id="user-lap"><span class="username">{{ user.username }}</span></i>
+                            </a>
+                        </li>
+                    {% else %}
+                        <a href="{% url 'login' %}">
+                            <li>
+                                <i class="fa-solid fa-user" id="user-lap"></i>
+                            </li>
+                        </a>
+                    {% endif %}
+                    </ul>
+                </div>
+                <div class="nav">
+                    <ul>
+                        <a href="{% url 'home2' %}">
+                            <li>Anasayfa</li>
+                        </a>
+                        <a href="#">
+                            <li>Hakkımızda</li>
+                        </a> 
+                        <a href="{% url 'yemektarifleri' %}">
+                            <li>Yemek Tarifleri</li>
+                        </a>
+                        <a href="#">
+                            <li>İletişim</li>
+                        </a>
+                       
+                    </ul>
+                </div>
+            </div>
+            <div class="logo">
+                <img src="{% static 'img/mo.png' %}" alt="">
+            </div>
+            <div class="bar">
+                <i class="fa-solid fa-bars"></i>
+                <i class="fa-solid fa-xmark" id="hdcross" style="z-index: 2;"></i>
+            </div>
+            <div class="nav">
+                <ul>
+                    <a href="{% url 'home2' %}">
+                        <li>Anasayfa</li>
+                    </a>
+                    <a href="#">
+                        <li>Hakkımızda</li>
+                    </a> 
+                    <a href="{% url 'yemektarifleri' %}">
+                        <li>Yemek Tarifleri</li>
+                    </a>
+                    <a href="#">
+                        <li>İletişim</li>
+                    </a>
+                   
+                </ul>
+            </div>
+            <div class="account">
+                <ul>
+                    <a href="{% url 'home2' %}">
+                        <li>
+                            <i class="fa-solid fa-house-chimney"></i>
+                        </li>
+                    </a>
+                
+                  
+                    {% if user.is_authenticated %}
+                        <li>
+                            <a href="{% url 'logout' %}">
+                                <i class="fa-solid fa-sign-out-alt" id="logout-icon"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'logmal' %}">
+                                <i class="fa-solid fa-user" id="user-lap"><span class="username">{{ user.username }}</span></i>
+                            </a>
+                        </li>
+                    {% else %}
+                        <a href="{% url 'login' %}">
+                            <li>
+                                <i class="fa-solid fa-user" id="user-lap"></i>
+                            </li>
+                        </a>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const bar = document.querySelector('.fa-bars');
+                const cross = document.querySelector('#hdcross');
+                const headerbar = document.querySelector('.headerbar');
     
-
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.0.0/fonts/remixicon.css" rel="stylesheet">
-
-    <link rel="stylesheet" href="https:/unpkg.com/boxicons@latest/css/boxicons.min.css">
-
-  <link rel="preconnect" href="https:/fonts.googleapis.com">
-  <link rel="preconnect" href="https:/fonts.gstatic.com" crossorigin>
-  <link href="https:/fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
-</head>
-<body>
-<header>
-    <a href="#" class="logo"><i class="ri-fridge-fill"></i><span>KitchenApp</span></a>
-
-    <ul class="navbar">
-      <li><a href="{% url 'home' %}" class="active">Anasayfa</a></li>
-     
-      <li><a href="#">Hakkımızda</a></li>
-      <li><a href="{% url 'movies' %}">Tarifler</a></li>
-      <li><a href="#">Kaç Kalori?</a></li> 
-      
-      <li><a href="#">İletişim</a></li>
-     
-
-    </ul>
-
-    <div class="main">
-
-      {% if user.is_authenticated %}
-
-      <li><a href="{% url 'logout' %}" class="user">Çıkış Yap</a></li>
-      <li><a href="{% url 'logmal' %}" class="user">Hoşgeldin, {{ user.username |title }}</a></li>
-
-
-      {% else %}
-
-      <a href="{% url 'login' %}" class="user"><i class="ri-user-fill"></i>Giriş Yap</a>
-       <li><a href="{% url 'register' %}" class="user">Kayıt Ol</a></li>
-  
-      {% endif %}
-          <div class="bx bx-menu" id="menu-icon"></div> 
-    </div>
-  </header>
-
-
-  <script src="{% static 'js/script.js' %}"></script>
-  
-
-
-</body>
-</html>
+                bar.addEventListener('click', function() {
+                    setTimeout(function() {
+                        cross.style.display = 'block';
+                    }, 200);
+                    headerbar.style.right = '0%';
+                });
+    
+                cross.addEventListener('click', function() {
+                    cross.style.display = 'none';
+                    headerbar.style.right = '-100%';
+                });
+            });
+        </script>
+    </header>

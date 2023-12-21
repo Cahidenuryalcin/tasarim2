@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'css/index2.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="shortcut icon" href="{% static 'img/aa.png' %}" type="image/x-icon">
+
+    {% block style %}
+    {% endblock style %}
+    <title>Mobil Mutfağım</title>
+</head>
+
+<body>
+
+
+    {% include 'partials/_navbar.html' %}
+
+    {% block content %}
+
+    {% endblock content %}
+
+
+
+    <div class="footer">
+        <div class="footer-1">
+            <div class="logo">
+                <img src="{% static 'img/logo4.png'%}" alt="">
+            </div>
+            <div>
+                <address>
+                    <p>Email: mobilmutfak@gmail.com</p>
+                    <p>YouTube: Mobil Mutfak</p>
+                    <p>Bilecik Şeyh Edebali Uni </br> Bilecik </br> Turkiye</p>
+                </address>
+            </div>
+        </div>
+        <div class="footer-2">
+            <img src="{% static 'img/aa.png'%}" alt="">
+            <h2>Powered by <em>Mobil Mutfak</em></h2>
+        </div>
+    </div>
+
+    <script src="{% static 'js/aaa.js' %}"></script>
+    {% block script %}
+
+    {% endblock script %}
+
+
+</body>
+
+</html>

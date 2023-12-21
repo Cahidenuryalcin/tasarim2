@@ -1,36 +1,78 @@
+{% extends 'main.html' %}
 {% load static %}
-<!DOCTYPE html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>KitchenApp</title>
+
+
+{% block style %}
+<link href="
+https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
+" rel="stylesheet">
+{% endblock style %}
+
+
+{% block content %}
+<div class="home">
+
    
-    
-    <link rel="stylesheet" href="{% static 'css/malzeme.css' %}">
+    <div class="main_slide3">
+        <div class="fav-head">
+            <h3 >Malzemelerim</h3>
+        </div>
+        <div style="padding-bottom: 50px;">
+        <a href="{% url 'logmal' %}"><button class="red_btn">Tümünü Listele</button></a>
+        <a href="{% url 'malzeme_ekle' %}"><button class="red_btn">Yeni Malzeme Ekle</button></a>
+        </div>
 
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.0.0/fonts/remixicon.css" rel="stylesheet">
+        <section class="splide" aria-label="Splide Basic HTML Example" >
+            <div class="splide__track">
+                <ul class="splide__list">
+                  {% for kategori in malzemekategori %}
+                    <li class="splide__slide"><a href="{% url 'malzemebycategory' kategori.id %}"><div >{{ kategori.name|title }}</div></a></li>
+                    
+                    {% endfor %} 
+                </ul>
+            </div>
+        </section>
+        <div class="fav-food">
+          {% for malzeme in malzemeler %}
+            <div class="item">
+                <a href="{% url 'malSil' malzeme.malzeme.id %}">
+                    <i class="fa-solid fa-circle-xmark fa-2x"></i>
+                </a>
+            
+                <h2>{{ malzeme.malzeme.malzeme_adi }}</h2>
+               
+                <h3><h5>{{ malzeme.adet}}  <span>{{ malzeme.malzeme.tur.name }}</span></h5> <h6>{{ malzeme.updated_at|timesince}} önce düzenlendi</h6></h3>
+                <a href="{% url 'malzeme_duzenle'  malzeme.malzeme.id  %}"><button class="red_btn">Düzenle</button></a>
+                
+            </div>
+           {% endfor %}
 
-    <link rel="stylesheet" href="https:/unpkg.com/boxicons@latest/css/boxicons.min.css">
-
-  <link rel="preconnect" href="https:/fonts.googleapis.com">
-  <link rel="preconnect" href="https:/fonts.gstatic.com" crossorigin>
-  <link href="https:/fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
-</head>
-<body>  
-
-    {% include 'partials/_navbar.html' %}
-    
-    <div class="container">
-    
-    {% include 'partials/_malzemekat.html' %}
-
-    {% include 'partials/_malzemelist.html' %}
+        </div>
        
     </div>
 
-    
-    
- 
-    <script src="{% static 'js/script.js' %}"></script>
-</body>
-</html>
+</div>
+{% endblock content %}
+
+
+{% block script %}
+
+<script src="
+https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js
+"></script>
+<script>
+    var splide = new Splide('.splide', {
+        updateOnMove: true,
+        type: 'loop',
+        perPage: 7,
+        perMove: 1,
+        focus: 'center',
+        arrows: false,
+        pagination: false,
+    });
+
+    splide.mount();
+
+</script>
+
+{% endblock script %}

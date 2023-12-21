@@ -1,40 +1,181 @@
+
+{% extends 'main.html' %}
 {% load static %}
-<!DOCTYPE html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>KitchenApp</title>
-   
-    <link rel="stylesheet" href="{% static 'css/index.css' %}">
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.0.0/fonts/remixicon.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="https:/unpkg.com/boxicons@latest/css/boxicons.min.css">
+{% block content %}
+<div class="home">
+  <div class="main_slide">
+      <div>
+          <h1> Mutfağınız</h1>
+          <h1><span> Mobil Mutfak </span>İle </h1>
+          <h1>Avcunuzun </h1> 
+          <h1>İçinde</h1> 
+          <h1>Lezzetler Hep</h1>
+          <h1>Sizinle!</h1> 
+          <p>Aklında kalacağına cebinde kalsın! Sen de Mobil Mutfağa kaydol, dilediğin yerden mutfağında ne var ne yok hepsini gör. </p>
 
-  <link rel="preconnect" href="https:/fonts.googleapis.com">
-  <link rel="preconnect" href="https:/fonts.gstatic.com" crossorigin>
-  <link href="https:/fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
-</head>
-<body>
+          <button class="red_btn">Şimdi Kayıt Ol <i class="fa-solid fa-arrow-right-long"></i></button>
+      </div>
+      <div>
+          <img src="{% static 'img/ho.png'%}" alt="">
+      </div>
 
-  
-  {% include 'partials/_navbar.html' %}
-
-   
-  <div class="container">
-    <div class="site-photo">
-      <img src="{% static 'img\momut.jpg' %}" alt="Site Fotoğrafı">
-    </div>
   </div>
 
-  <div class="footer">
-    <p>&copy; 2023 KitchenApp. Tüm hakları saklıdır.</p>
+  <div class="food-items">
+      <div class="item">
+          <div>
+              <img src="{% static 'img/kapp.png'%}" alt="">
+          </div>
+          <h3>Food Name</h3>
+          <p>Lorem ipsum</p>
+          <button class="white_btn">See Menu</button>
+      </div>
+      <div class="item">
+          <div>
+              <img src="{% static 'img/kapp.png'%}" alt="">
+          </div>
+          <h3>Food Name</h3>
+          <p>Lorem ipsum</p>
+          <button class="red_btn">See Menu</button>
+      </div>
+      <div class="item">
+          <div>
+              <img src="{% static 'img/kapp.png'%}" alt="">
+          </div>
+          <h3>Food Name</h3>
+          <p>Lorem ipsum</p>
+          <button class="white_btn">See Menu</button>
+      </div>
   </div>
 
+  <div class="main_slide2">
+      <div class="foodimg">
+          <img src="{% static 'img/kapp.png'%}" alt="">
+      </div>
+      <div class="question">
+          <div>
+              <h2>Why People Choose Us?</h2>
+          </div>
+          <div>
+              <div class="q-ans">
+                  <div>
+                      <img src="{% static 'img/kapp.png'%}" alt="">
+                  </div>
+                  <div>
+                      <h4>Choose your favorite</h4>
+                      <p>Lorem impsum</p>
+                  </div>
+              </div>
+              <div class="q-ans">
+                  <div>
+                      <img src="{% static 'img/kapp.png'%}" alt="">
+                  </div>
+                  <div>
+                      <h4>Choose your favorite</h4>
+                      <p>Lorem impsum</p>
+                  </div>
+              </div>
+              <div class="q-ans">
+                  <div>
+                      <img src="{% static 'img/kapp.png'%}" alt="">
+                  </div>
+                  <div>
+                      <h4>Choose your favorite</h4>
+                      <p>Lorem impsum</p>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
 
-<!-- js -->
-<script src="{% static 'js/script.js' %}"></script>
-  
+  <div class="main_slide3">
+      <div class="fav-head">
+          <h3>Our Popular Food Items</h3>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum fugiat mollitia eaque totam amet esse cumque natus dicta quibusdam quod.</p>
+      </div>
+      <div class="fav-food">
+          <div class="item">
+              <div class="div">
+                  <img src="{% static 'img/kapp.png'%}" alt="">
+              </div>
+              <h3>Food Name</h3>
+              <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellat, consequuntur?</p>
+              <p class="fav-price">$2.90</p>
+          </div>
+          <div class="item">
+              <div class="div">
+                  <img src="{% static 'img/kapp.png'%}" alt="">
+              </div>
+              <h3>Food Name</h3>
+              <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellat, consequuntur?</p>
+              <p class="fav-price">$2.90</p>
+          </div>
+          <div class="item">
+              <div class="div">
+                  <img src="{% static 'img/kapp.png'%}" alt="">
+              </div>
+              <h3>Food Name</h3>
+              <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellat, consequuntur?</p>
+              <p class="fav-price">$2.90</p>
+          </div>
+          <div class="item">
+              <div class="div">
+                  <img src="{% static 'img/kapp.png'%}" alt="">
+              </div>
+              <h3>Food Name</h3>
+              <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellat, consequuntur?</p>
+              <p class="fav-price">$2.90</p>
+          </div>
+      </div>
+      <div class="dsgn"></div>
+  </div>
 
+  <div class="main_slide4">
+      <div class="chef-feed">
+          <h2>Customer <span  style="color:red">Feedback</span></h2>
+          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum at et repellendus perferendis. Omnis, corporis debitis libero nemo, accusantium nobis enim facilis esse in voluptas non ad laboriosam? Voluptates corporis ad voluptatem, totam porro a eligendi possimus laboriosam eveniet. Eligendi dolore hic perferendis ipsum velit aut voluptates quibusdam deserunt cum.
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, quod atque recusandae suscipit sunt aperiam maiores aspernatur illum modi ratione vero dolorem dolore ad ipsam temporibus nemo voluptate iure deleniti quam quos soluta consequatur impedit! Hic consequatur non, quisquam architecto, nostrum modi, tempora exercitationem quo unde laboriosam veritatis sunt magni?
+          </p>
+          <div class="chef-detail">
+              <div>
+                  <img src="{% static 'img/kapp.png'%}" alt="">
+              </div>
+              <div>
+                  <h6>Mobil Mutfak</h6>
+                  <p>Web Developer</p>
+              </div>
+          </div>
+          <div class="chef-vic">
+              <div>
+                  <i class="fa-solid fa-hand-peace"></i>
+                  <h4>68</h4>
+                  <p>Lorem ipsum dolor sit amet.</p>
+              </div>
+              <div>
+                  <i class="fa-solid fa-trophy"></i>
+                  <h4>956</h4>
+                  <p>Lorem ipsum dolor sit amet consectetur.</p>
+              </div>
+          </div>
+      </div>
+      <div class="chef">
+          <img src="{% static 'img/kapp.png'%}" alt="">
+          
+      </div>
+  </div>
 
-</body>
-</html>
+  <div class="letter">
+      <div class="letter-head">
+          <h2>Subscrie <span>Newsletter</span></h2>
+      </div>
+      <div class="letter-input">
+          <div>
+              <input type="email" placeholder="Example.com">
+          </div>
+          <button class="red_btn">Subscribe</button>
+      </div>
+  </div>
+
+</div>
+{% endblock %}

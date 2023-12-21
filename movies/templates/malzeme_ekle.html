@@ -1,50 +1,45 @@
+{% extends 'main.html' %}
 {% load static %}
-<!DOCTYPE html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>KitchenApp</title>
-    <link rel="stylesheet" href="{% static 'css/ekle.css' %}">
 
-
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.0.0/fonts/remixicon.css" rel="stylesheet">
-
-    <link rel="stylesheet" href="https:/unpkg.com/boxicons@latest/css/boxicons.min.css">
-
-  <link rel="preconnect" href="https:/fonts.googleapis.com">
-  <link rel="preconnect" href="https:/fonts.gstatic.com" crossorigin>
-  <link href="https:/fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
-</head>
-<body>
+{% block content %}
+<div class="home" style="background-image: url('../static/img/wall.jpg')">
+<div class="login_slide">
+<div class="wrapper">
   
-  {% include 'partials/_navbar.html' %}
-
-
-  <form method="post" action="{% url 'malzeme_ekle' %}">
-    {% csrf_token %}
-    <div>
-      <label for="malzeme_adi">Malzeme Adı:</label>
-      <input type="text" name="malzeme_adi" required>
-    </div>
-    <div>
-      <label for="malzeme_adet">Adet:</label>
-      <input type="number" name="malzeme_adet" required>
-    </div>
-    <div>
-      <label for="kategori">Kategori:</label>
-      <select name="kategori" required>
-        {% for kategori in malzemekategori %}
-          <option value="{{ kategori.id }}">{{ kategori.name }}</option>
-        {% endfor %}
-      </select>
-    </div>
-    <button type="submit">Ekle</button>
-  </form>
+  <div class="form-box login">
+    <h2>Malzeme Ekle</h2>
+    <form action="{% url 'malzeme_ekle' %}" method="POST"> 
+      {% csrf_token %}
   
-<!-- js -->
-<script src="{% static 'js/script.js' %}"></script>
+      {% if error %}
+      
+      {{error}}
+     
+      {% endif %}
   
+      <div class="input-box">
+        
+      
+        <select name="malzeme_id" required>
+          {% for malzeme in malzemeler %}
+            <option value="{{ malzeme.id }}" selected>{{ malzeme.malzeme_adi }}</option>
+          {% endfor %}
+        </select>
+        
+      </div>
+      <div class="input-box">
+    
+        <input type="number" name="adet"  placeholder="Adet" required>
+        <label for="malzeme_adi"></label>
+      </div>
+      <button type="submit" class="btn">Ekle</button>
+  
+    </form>
+  </div>
+</div>
+</div>
+
+</div>
+{% endblock content %}
 
 
-</body>
-</html>

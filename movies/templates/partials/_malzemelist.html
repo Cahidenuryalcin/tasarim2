@@ -28,22 +28,12 @@
                 {% for malzeme in malzemeler %}
                 
                 <div class="box">
-                    <h3>{{ malzeme.malzeme_adi }}</h3>
-                    <!-- <div class="img-box">
-                        <img class="images" src="{% static '/img/'|add:malzeme.malzeme_resim %}">
-                    </div> -->
-                    <div class="crement">
-                        <form method="post">
-                            {% csrf_token %}
-                            <p>{{ malzeme.malzeme_adet }}  Adet</p>
-                            <input type="hidden" name="malzeme_id" value="{{ malzeme.id }}">
-                            <button type="submit" name="increment" value="{{ malzeme.id }}">+</button>
-                            <button type="submit" name="decrement" value="{{ malzeme.id }}">-</button>
-                        </form>
-                    </div>
-                    <div class="bottom">
-                        <button>Düzenle</button>
-                    </div>
+                    <h3>{{ malzeme.malzeme.malzeme_adi }}</h3>
+                    <h3>{{ malzeme.adet}}</h3>
+
+                   
+                   
+                   
                 </div>
                 
                 {% endfor %}

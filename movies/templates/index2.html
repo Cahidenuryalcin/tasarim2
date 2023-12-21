@@ -1,0 +1,301 @@
+{% load static %}
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'css/index2.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="shortcut icon" href="{% static 'img/logo.png' %}" type="image/x-icon">
+    <title>Mobil Mutfak</title>
+</head>
+<body>
+    <header>
+        <div class="header">
+            <div class="headerbar">
+                <div class="account">
+                    <ul>
+                        <a href="#">
+                            <li>
+                                <i class="fa-solid fa-house-chimney"></i>
+                            </li>
+                        </a>
+
+                       
+
+                        {% if user.is_authenticated %}
+                        <li>
+                            <a href="{% url 'logout' %}">
+                                <i class="fa-solid fa-sign-out-alt" id="logout-icon"></i>
+                            </a>
+                        </li>
+                        <li>
+                             <a href="{% url 'logmal' %}">
+                                <i class="fa-solid fa-user" id="user-lap"><span class="username">{{ user.username }}</span></i>
+                            </a>
+                        </li>
+                    {% else %}
+                        <a href="{% url 'login' %}">
+                            <li>
+                                <i class="fa-solid fa-user" id="user-lap"></i>
+                            </li>
+                        </a>
+                    {% endif %}
+                    </ul>
+                </div>
+                <div class="nav">
+                    <ul>
+                        <a href="{% url 'home2' %}">
+                            <li>Anasayfa</li>
+                        </a>
+                        <a href="#">
+                            <li>Hakkımızda</li>
+                        </a> 
+                        <a href="{% url 'yemektarifleri' %}">
+                            <li>Yemek Tarifleri</li>
+                        </a>
+                        <a href="#">
+                            <li>İletişim</li>
+                        </a>
+                       
+                    </ul>
+                </div>
+            </div>
+            <div class="logo">
+                <img src="{% static 'img/mo.png' %}" alt="">
+            </div>
+            <div class="bar">
+                <i class="fa-solid fa-bars"></i>
+                <i class="fa-solid fa-xmark" id="hdcross"></i>
+            </div>
+            <div class="nav">
+                <ul>
+                    <a href="{% url 'home2' %}">
+                        <li>Anasayfa</li>
+                    </a>
+                    <a href="#">
+                        <li>Hakkımızda</li>
+                    </a> 
+                    <a href="{% url 'yemektarifleri' %}">
+                        <li>Yemek Tarifleri</li>
+                    </a>
+                    <a href="#">
+                        <li>İletişim</li>
+                    </a>
+                   
+                </ul>
+            </div>
+            <div class="account">
+                <ul>
+                    <a href="{% url 'home2' %}">
+                        <li>
+                            <i class="fa-solid fa-house-chimney"></i>
+                        </li>
+                    </a>
+                    
+                    {% if user.is_authenticated %}
+                        <li>
+                            <a href="{% url 'logout' %}">
+                                <i class="fa-solid fa-sign-out-alt" id="logout-icon"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'logmal' %}">
+                                <i class="fa-solid fa-user" id="user-lap"><span class="username">{{ user.username }}</span></i>
+                            </a>
+                        </li>
+                    {% else %}
+                        <a href="{% url 'login' %}">
+                            <li>
+                                <i class="fa-solid fa-user" id="user-lap"></i>
+                            </li>
+                        </a>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <div class="home">
+        <div class="main_slide">
+            <div>
+                <h1> Mutfağınız</h1>
+                <h1><span> Mobil Mutfak </span>İle </h1>
+                <h1>Avcunuzun </h1> 
+                <h1>İçinde,</h1> 
+                <h1>Lezzetler Hep</h1>
+                <h1>Sizinle!</h1> 
+                <p>Aklında kalacağına cebinde kalsın! Sen de Mobil Mutfağa kaydol, dilediğin yerden mutfağında ne var ne yok hepsini gör. </p>
+
+                <button class="red_btn">Şimdi Kayıt Ol <i class="fa-solid fa-arrow-right-long"></i></button>
+            </div>
+            <div>
+                <img src="{% static 'img/ho.png'%}" alt="">
+            </div>
+
+        </div>
+ <div class="main_slide3">
+            <div class="fav-head">
+                <h3>Trend Yemek Tarifleri</h3>
+            </div>
+            <div class="fav-food">
+                <div class="item">
+                    <div class="div">
+                        <img src="{% static 'img/lahmacun2.jpg'%}" alt="">
+                    </div>
+                    <h3>Lahmacun</h3>
+                    <a href="http://127.0.0.1:8000/movies/1"><button class="red_btn">Tarife Git</button></a>
+
+                </div>
+                <div class="item">
+                    <div class="div">
+                        <img src="{% static 'img/midyedolma.png'%}" alt="">
+                    </div>
+                    <h3>Midye Dolma</h3>
+                    <a href="http://127.0.0.1:8000/movies/2"><button class="white_btn">Tarife Git</button></a>
+
+                </div>
+                <div class="item">
+                    <div class="div">
+                        <img src="{% static 'img/tulumba2.png'%}" alt="">
+                    </div>
+                    <h3>Tulumba Tatlısı</h3>
+                    <a href="http://127.0.0.1:8000/movies/4"><button class="red_btn">Tarife Git</button></a>
+
+                </div>
+                <div class="item">
+                    <div class="div">
+                        <img src="{% static 'img/bulgurpilavi.png'%}" alt="">
+                    </div>
+                    <h3>Bulgur Pilavı</h3>
+                    <a href="http://127.0.0.1:8000/movies/3"><button class="white_btn">Tarife Git</button></a>
+
+
+                </div>
+            </div>
+            <div class="dsgn"></div>
+        </div>
+        
+
+        <div class="main_slide2">
+            <div class="foodimg">
+                <img src="{% static 'img/kapp.png'%}" alt="">
+            </div>
+            <div class="question">
+                <div>
+                    <h2>Neden Mobil Mutfağı Kullanmalısın?</h2>
+                </div>
+                <div>
+                    <div class="q-ans">
+                        <div>
+                            <img src="{% static 'img/siparis.png'%}" alt="">
+                        </div>
+                        <div>
+                            <h4>Alışveriş Listesi</h4>
+                            <p>Mobil Mutfak, alışverişin için liste görevi görür</p>
+                        </div>
+                    </div>
+                    <div class="q-ans">
+                        <div>
+                            <img src="{% static 'img/tarif.jpeg'%}" alt="">
+                        </div>
+                        <div>
+                            <h4>Yemek Tarifleri</h4>
+                            <p>Mobil Mutfakta bulunan yemek tarifleri ile istediğin yemeği yapabilirsin.</p>
+                        </div>
+                    </div>
+                    <div class="q-ans">
+                        <div>
+                            <img src="{% static 'img/tasarruf.png'%}" alt="">
+                        </div>
+                        <div>
+                            <h4>Cebinde Kalsın</h4>
+                            <p>Mobil Mutfak ile alışverişlerini yap, tüketim israfından kurtul.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+       
+
+        <div class="main_slide4">
+            <div class="chef-feed">
+                <h2>Mobil <span  style="color:red">Mutfak</span></h2>
+                <p>Mobil Mutfak ile; Sitede kullanıcı olarak kaydolmanızı sağlayarak, mutfağınızdaki malzemelerin bilgilerini girebilirsiniz. Malzeme adetlerini güncelleme, arttırma, azaltma, yeni malzeme ekleme ve mevcut malzemeleri silme gibi işlemleri gerçekleştirebilirsiniz. Aynı zamanda sitede bulunan tariflere erişebilir ve kullanıcının mutfağındaki malzemeleri ve sitede bulunan yemek tariflerini kategorilere göre filtreleyebilirsiniz.
+                    İlgili bir yemek tarifini seçtiğinizde, "ben de yaptım" butonuna basarak yemekte kullanılan malzemelerin mutfaktaki stoktan otomatik olarak azalmasını sağlayabilirsiniz.
+                </p>
+                <div class="chef-detail">
+                    <div>
+                        <img src="{% static 'img/kapp.png'%}" alt="">
+                    </div>
+                    <div>
+                        <h6>Mobil Mutfak</h6>
+                        <p>Tasarım Çalışması II</p>
+                    </div>
+                </div>
+                <div class="chef-vic">
+                    <div>
+                        <i class="fa-solid fa-face-smile"></i>
+                        <h4><i class="fa-solid fa-check" style="color: #ff0000;"></i></h4>
+                        <p><h3>Kullanıcı Dostu</h3></p>
+                    </div>
+                    <div>
+
+                        <i class="fa-solid fa-earth-americas" style="color: #000000;"></i>
+                        <h4><i class="fa-solid fa-check" style="color: #ff0000;"></i></h4>
+
+                        <p><h3>Çevre Dostu</h3></p>
+                    </div>
+                </div>
+            </div>
+            <div class="chef">
+                <img src="{% static 'img/kapp.png'%}" alt="">
+                
+            </div>
+        </div>
+
+      
+  
+    </div>
+        <div class="footer">
+                <div class="footer-1">
+                    <div class="logo">
+                        <img src="{% static 'img/mo.png'%}" alt="">
+                    </div>
+                    <div>
+                        <address>
+                            <p>Email: mobilmutfak@gmail.com</p>
+                            <p>YouTube: Mobil Mutfak</p>
+                            <p>Bilecik Şeyh Edebali Uni </br> Bilecik </br> Turkiye</p>
+                        </address>
+                    </div>
+                </div>
+                <div class="footer-2">
+                    <img src="{% static 'img/logo.png'%}" alt="">
+                    <h2>Powered by <em>Mobil Mutfak</em></h2>
+                </div>
+            </div>
+
+            <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    const bar = document.querySelector('.fa-bars');
+                    const cross = document.querySelector('#hdcross');
+                    const headerbar = document.querySelector('.headerbar');
+        
+                    bar.addEventListener('click', function() {
+                        setTimeout(function() {
+                            cross.style.display = 'block';
+                        }, 200);
+                        headerbar.style.right = '0%';
+                    });
+        
+                    cross.addEventListener('click', function() {
+                        cross.style.display = 'none';
+                        headerbar.style.right = '-100%';
+                    });
+                });
+            </script>
+
+
+</body>
+</html>

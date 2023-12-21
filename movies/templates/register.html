@@ -1,54 +1,73 @@
+{% extends 'main.html' %}
 {% load static %}
-<!DOCTYPE html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>KitchenApp</title>
-   
+
+{% block content %}
+<div class="home" style="background-image: url('../static/img/wall.jpg')">
+<div class="login_slide">
+<div class="wrapper">
+  <div class="form-box reg" style="
+  background-color: #ffd1ab;
+    margin-bottom: -10px;
+    padding: 10px;
+    height: 50px;
+    width: 100px;
+    font-size: 10px;
     
-    <link rel="stylesheet" href="{% static 'css/register.css' %}">
-
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.0.0/fonts/remixicon.css" rel="stylesheet">
-
-    <link rel="stylesheet" href="https:/unpkg.com/boxicons@latest/css/boxicons.min.css">
-
-  <link rel="preconnect" href="https:/fonts.googleapis.com">
-  <link rel="preconnect" href="https:/fonts.gstatic.com" crossorigin>
-  <link href="https:/fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
-</head>
-<body>  
-
-    <form action="" method="POST">
-
+">
+    <a href="{% url 'login' %}"><h2>Giriş Yap</h2></a>
+    
+  </div>
+  <div class="form-box login">
+    <h2>Kayıt Ol</h2>
+    <form action="{% url 'register' %}" method="POST"> 
       {% csrf_token %}
-
+  
       {% if error %}
       
       {{error}}
      
       {% endif %}
+  
+      <div class="input-box">
+       
+        <input type="text" name="username" placeholder="Kullanıcı Adı" value="{{ username }}">
+        <label for="username"></label>
+      </div>
+      <div class="input-box">
+       
+        <input type="text" name="firstname" placeholder="Ad" value="{{ firstname }}">
+        <label for="firstname"></label>
+      </div>
 
-		<label for="username">Kullanıcı Adı:</label>
-		<input type="text" id="username" name="username" value="{{ username }}">
+      <div class="input-box">
+        
+        <input type="text" name="lastname" placeholder="Soyad"  value="{{ lastname }}">
+        <label for="lastname"></label>
+      </div>
+      <div class="input-box">
+        
+        <input type="email" name="email" placeholder="Email"  value="{{ email }}">
+        <label for="email"></label>
+      </div>
 
-    <label for="firstname">Ad:</label>
-		<input type="text" id="firstname" name="firstname" value="{{ firstname }}">
+      <div class="input-box">
+        
+        <input type="password" name="password"  placeholder="Parola" required>
+        <label for="password"></label>
+      </div>
+      <div class="input-box">
+       
+        <input type="password" name="password_confirm" placeholder="Parola Doğrulama" required>
+        <label for="password_confirm"></label>
+      </div>
+      <button type="submit" class="btn">Kayıt Ol</button>
+  
+    </form>
+  </div>
+</div>
+</div>
 
-    <label for="lastname">Soyad:</label>
-		<input type="text" id="lastname" name="lastname" value="{{ lastname }}">
+</div>
+{% endblock content %}
 
-		<label for="email">E-posta Adresi:</label>
-		<input type="email" id="email" name="email" value="{{ email }}">
 
-		<label for="password">Parola:</label>
-		<input type="password" id="password" name="password" required>
-
-		<label for="password_confirm">Parola Doğrulama:</label>
-		<input type="password" id="password_confirm" name="password_confirm" required>
-
-		<input type="submit" value="Kayıt Ol">
-	</form>
-
- 
-</body>
-</html>

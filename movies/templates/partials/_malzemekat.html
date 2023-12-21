@@ -24,11 +24,11 @@
             <div class="filter">
                 <a class="active" href="{% url 'logmal' %}">Tümünü Listele</a> 
                 {% for kategori in malzemekategori %}
-                {% if kategoris.id == selecteds %}
+            
                     <div class="btns">
-                       <a class="active" href="{% url 'malzemebycategory' kategori.id %}">{{ kategori.name|title }}</a>
+                       <a class="" href="{% url 'malzemebycategory' kategori.id %}">{{ kategori.name|title }}</a>
                     </div>
-                {% endif %}
+            
                 {% endfor %} 
             </div>
             

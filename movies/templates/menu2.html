@@ -1,0 +1,78 @@
+{% extends 'main.html' %}
+{% load static %}
+
+
+{% block style %}
+<link href="
+https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
+" rel="stylesheet">
+{% endblock style %}
+
+
+{% block content %}
+<div class="home">
+
+   
+    <div class="main_slide3">
+        <div class="fav-head">
+            <h3>Yemek Tarifleri</h3>
+        </div>
+        <div style="padding-bottom: 50px;">
+            <a href="{% url 'yemektarifleri' %}"><button class="red_btn">Tümünü Listele</button></a>
+            </div>
+        <section class="splide" aria-label="Splide Basic HTML Example" >
+            <div class="splide__track">
+                <ul class="splide__list">
+                    {% for kategori in kategoriler %}
+                    {% if category.id == selected_category %}
+                    <li class="splide__slide"><a href="{% url 'moviesbycategory' kategori.id %}"><div >{{kategori.name|title}}</div></a></li>
+                    {% endif %}
+                    {% endfor %} 
+                </ul>
+            </div>
+        </section>
+        <div class="fav-food">
+            {% for film in filmler %}
+            <div class="item">
+                <div class="div">
+                    <img src="{% static '/img/'|add:film.resim %}" alt="">
+                </div>
+<div style="margin-top: -30px;">
+                <h3>{{film.film_adi}}</h3>
+                <p><h4><span style="color: rgb(255, 0, 0)";>{{ film.kisilik }}</span></h4>  kişilik</p>
+                <p><h4><span style="color: rgb(255, 0, 0)";>{{ film.vakit }}</span></h4> dk</p>
+                <p><h4><span style="color: rgb(255, 0, 0)";>{{ film.kalori }}</span></h4> kcal</p>
+</div>                
+                 <a href="{% url 'moviedetails' id=film.id %}"><button class="red_btn">Tarife Git</button></a>
+            </div>
+           {% endfor %}
+
+        </div>
+       
+    </div>
+
+</div>
+{% endblock content %}
+
+
+{% block script %}
+
+<script src="
+https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js
+"></script>
+<script>
+    var splide = new Splide('.splide', {
+        updateOnMove: true,
+        type: 'loop',
+        perPage: 7,
+        perMove: 1,
+        focus: 'center',
+        arrows: false,
+        pagination: false,
+    });
+
+    splide.mount();
+
+</script>
+
+{% endblock script %}
